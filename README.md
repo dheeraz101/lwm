@@ -15,6 +15,14 @@ Web-based file management system for local servers with enhanced monitoring and 
 - 🌙 Dark mode support
 - 📈 Server resource dashboard
 
+## Screenshots
+
+![Dashboard View](./screenshots/screenshot.png)(./screenshots/screenshot_dark.png)
+*Main Interface with Dark Mode Enabled*
+
+![Log Viewer](./screenshots/screenshot_logs.png)
+*Log Monitoring Interface*
+
 ## Installation
 
 1. **Clone repository** to your server's web root (htdocs/www):
