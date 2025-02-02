@@ -17,10 +17,10 @@ Web-based file management system for local servers with enhanced monitoring and 
 
 ## Screenshots
 
-![Dashboard View](./screenshots/screenshot.png)(./screenshots/screenshot_dark.png)
+![Dashboard View](./screenshot/screenshot.png)(./screenshot/screenshot_dark.png)
 *Main Interface with Dark Mode Enabled*
 
-![Log Viewer](./screenshots/screenshot_logs.png)
+![Log Viewer](./screenshot/screenshot_logs.png)
 *Log Monitoring Interface*
 
 ## Installation
