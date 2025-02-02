@@ -1,0 +1,444 @@
+/**
+ * LocalServer Web Manager - [Open-source web interface for local server management]
+ * 
+ * @package     LocalServer-WebManager
+ * @description Styles for the LocalServer Web Manager
+ * @version     1.0.0
+ * @author      Dheeraz
+ * @license     MIT
+ * @link        https://github.com/dheeraz101/lwm
+ */
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
+    background-color: #1a202c;
+    color: #cbd5e0;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.75;
+    pointer-events: none;
+    cursor: progress;
+}
+
+/* Table Styles */
+.table-container {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dark th, .dark td {
+    border-color: #374151;
+}
+
+th {
+    background-color: #f9fafb;
+    font-weight: 600;
+}
+
+.dark th {
+    background-color: #1f2937;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.dark tbody tr:hover {
+    background-color: #2d3748;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+    
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    tr {
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        padding: 0.5rem;
+    }
+    
+    td {
+        display: grid;
+        grid-template-columns: minmax(100px, 1fr) 2fr;
+        align-items: center;
+        padding: 0.75rem;
+        border: none;
+        text-align: right;
+    }
+    
+    td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #4b5563;
+        text-align: left;
+    }
+    
+    .dark td::before {
+        color: #9ca3af;
+    }
+
+    /* Specific styling for Actions column */
+    td[data-label="Actions"] {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    td[data-label="Actions"]::before {
+        display: none;
+    }
+
+    td[data-label="Actions"] button {
+        font-size: 0.875rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Dark Mode Overrides */
+.dark .bg-white {
+    background-color: #1f2937;
+}
+
+.dark .text-gray-700 {
+    color: #e5e7eb;
+}
+
+/* Interactive Elements */
+button, select, input {
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+#dark-mode-toggle {
+    transition: transform 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    transform: rotate(15deg);
+}
+
+/* Error State */
+.bg-red-100 {
+    background-color: #fee2e2;
+}
+
+.dark .bg-red-100 {
+    background-color: #7f1d1d;
+}
+
+/* Improved Log Modal */
+.z-50 {
+    z-index: 50;
+}
+
+.font-mono {
+    font-family: monospace;
+}
+
+/* File type colors */
+tr td:first-child {
+    color: #3b82f6; /* Blue for directories */
+}
+
+tr td:first-child > 📄 {
+    color: #10b981; /* Green for files */
+}
+
+/* Better scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+}
+
+/* Path breadcrumb styling (add to your HTML) */
+#path-breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.dark #path-breadcrumb {
+    background-color: #1e293b;
+}
+
+/* Improved Modal Spacing */
+.log-modal {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.log-modal > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Fix for Firefox overflow */
+}
+
+.log-modal pre {
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+    scrollbar-width: thin;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+@media (max-width: 640px) {
+    .log-modal {
+        height: 90vh !important;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .log-modal pre {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .log-modal button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Ensure proper spacing in all browsers */
+.log-modal > div {
+    gap: 0.5rem;
+}
+
+.log-modal pre {
+    scroll-padding: 1rem;
+}
+
+/* Log Modal Fixes */
+.pre-container {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.dark .pre-container {
+    scrollbar-color: #4b5563 transparent;
+}
+
+.pre-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.pre-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark .pre-container::-webkit-scrollbar-thumb {
+    background: #4b5563;
+}
+
+.modal-backdrop {
+    backdrop-filter: blur(4px);
+}
+
+/* Improved Dark Mode */
+.dark footer {
+    background-color: #111827;
+    border-color: #1f2937;
+}
+
+.dark footer a {
+    color: #9ca3af;
+}
+
+.dark footer h3 {
+    color: #f3f4f6;
+}
+
+.container {
+    flex: 1 0 auto;
+    padding-bottom: 2rem;
+}
+
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+/* Skeleton Animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1 }
+    50% { opacity: 0.5 }
+}
+
+.animate-pulse {
+    animation: new-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.bg-gray-200.dark\\:bg-gray-700 {
+    background-color: #374151;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.status-ping {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+@keyframes new-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+}
+
+.animate-ping {
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Optional: Add dark mode adaptation */
+.dark .status-dot,
+.dark .status-ping {
+    background: #16a34a;
+}
+
+/* Internet Quality Bar */
+#internet-quality-bar {
+    transition: width 0.5s ease, background-color 0.3s ease;
+}
+
+/* MySQL Pulse Animation */
+.mysql-pulse {
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Internet Card Enhancements */
+.internet-pulse {
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.go-top-btn {
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.go-top-btn:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+#data-usage::after {
+    content: "MB";
+    font-size: 0.75em;
+    margin-left: 2px;
+    opacity: 0.7;
+}
+
+/* Pulse Animations */
+.storage-pulse { animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.logs-pulse { animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+/* Status Consistency */
+
+.progress-fill {
+    transition: width 0.5s ease, background-color 0.3s ease;
+}
+
+/* Ensure progress bars are visible */
+.progress-bar {
+    overflow: hidden;
+    position: relative;
+    background-color: #e5e7eb; /* Light mode color */
+}
+
+.dark .progress-bar {
+    background-color: #374151; /* Dark mode color */
+}
+
+.status-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Card Hover Effects */
+.hover-scale {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-scale:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .hover-scale:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}

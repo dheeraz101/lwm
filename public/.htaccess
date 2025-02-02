@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# Route API requests correctly
+RewriteRule ^api/(.*)$ ../api/$1 [L,QSA]

@@ -1,0 +1,16 @@
+# Environment
+/config/config.env
+/logs/*
+!.gitkeep
+
+# System Files
+.DS_Store
+.idea/
+vendor/
+composer.lock
+
+# Temp Files
+*.swp
+*.swo
+*.log
+
